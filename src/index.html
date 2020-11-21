@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Dungeon Generator</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <div class="main_page_div">
+            <div class="column">
+                <h1>dungeon generator</h1>
+                <div class="row">
+                    <form class="dungeon_generate_form">
+                        <h4>dungeon dimensions</h4>
+                        width:
+                        <input type="number" class="dim_width" min="8" max="64" value="20">
+                        height:
+                        <input type="number" class="dim_height" min="8" max="64" value="20">
+
+                        <h4>dungeon settings</h4>
+                        dungeon_size:
+                        <input type="number" class="max_tunnels" min="10" max="300" value="70">
+                        avg_corridor_length:
+                        <input type="number" class="max_tunnel_length" min="4" max="30" value="7">
+
+                        <h4>dungeon generate</h4>
+                        <input type="submit" value="Generate">
+                    </form>
+                </div>
+                <div class="row">
+                    <h4>upload custom tiles</h4>
+                    <p>Inorder for this to work, please upload a single SQUARE tile!
+                        <br> Please make sure wall and path tiles have the SAME dimensions!!
+                        <br> Maximum recommended tile width/height is 100px.
+                    </p>
+                    <div class="inner_row">
+                        wall_image:
+                        <input type="file" class="wall_img_file" accept="image/*" onchange="load_wall_img(event)">
+                    </div>
+                    <div class="inner_row">
+                        path_image:
+                        <input type="file" class="ground_img_file" accept="image/*" onchange="load_ground_img(event)">
+                    </div>
+
+                    <p class="error_msg"></p>
+
+                </div>
+                <div class="row">
+                    <h4>dungeon export</h4>
+                    <button class="export_button">export</button>
+                </div>
+            </div>
+
+            <div class="column">
+                <table class="dungeon_table"></table>
+                <canvas class="dungeon_canvas"></canvas>
+            </div>
+        </div>    
+    </body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="generator.js"></script>
+</html>
